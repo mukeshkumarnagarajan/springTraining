@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.service.IOrderService;
-import com.example.demo.service.OrderService;
 
 import jakarta.validation.Valid;
 
@@ -20,13 +19,13 @@ public class OrderController {
 	IOrderService orderService;
 	
 	@PostMapping("/order")
-	void createOrder(@Valid @RequestBody Order order) {
+	void createOrder(@Valid @RequestBody Orders order) {
 		System.out.println(order.getItem());
 		orderService.saveOrder(order);
 	}
 	
 	@GetMapping("/order")
-	List<Order> getOrders(){
+	List<Orders> getOrders(){
 		return null;
 	}
 }
