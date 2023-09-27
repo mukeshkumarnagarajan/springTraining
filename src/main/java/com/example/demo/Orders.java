@@ -2,14 +2,17 @@ package com.example.demo;
 
 import java.util.Date;
 
+import org.springframework.data.annotation.Transient;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 
 @Entity
 public class Orders {
@@ -31,9 +34,38 @@ public class Orders {
 	@Min(value = 1, message = "Price cannot be negative")
 	float price;
 	
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	Date createdDate;
 	
-   public Date getCreatedDate() {
+	@Email(message = "Mail is Invalid")
+	String email;
+	
+	@NotBlank()
+	@Pattern(regexp = "^\\d{10}$", message="Invalid Number")
+	String mobile;
+	
+   /**
+	 * @return the mobile
+	 */
+	public String getMobile() {
+		return mobile;
+	}
+
+	/**
+	 * @param mobile the mobile to set
+	 */
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+
+public Date getCreatedDate() {
 		return createdDate;
 	}
    

@@ -4,6 +4,7 @@ import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.IOrderRepository;
 import com.example.demo.Orders;
@@ -15,9 +16,11 @@ public class OrderService implements IOrderService {
 	IOrderRepository repository;
 	
 	@Override
+	@Transactional
 	public void saveOrder(Orders order) {
 		order.setCreatedDate(new Date());
 		repository.save(order);
 		System.out.println(order.getItem());
+		//throw new IllegalAccessError("Something went Wrong");
 	}
 }
