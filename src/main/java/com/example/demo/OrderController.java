@@ -35,7 +35,7 @@ public class OrderController {
 	
 	@GetMapping("/order")
 	List<Orders> getOrders(){
-		return null;
+		return orderService.getOrders();
 	}
 	
 	@ResponseStatus(code = HttpStatus.BAD_REQUEST)
