@@ -29,4 +29,15 @@ public class OrderService implements IOrderService {
 	public List<Orders> getOrders() {
 		return repository.findAll();
 	}
+
+	@Override
+	public Orders getOrdersbyId(Integer id) {
+		return repository.findById(id).get();
+	}
+	
+	@Override
+	@Transactional
+	public void deleteOrder(Integer id) {
+		 repository.deleteById(id);
+	}
 }

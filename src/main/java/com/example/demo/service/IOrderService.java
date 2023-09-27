@@ -11,4 +11,8 @@ public interface IOrderService {
 	void saveOrder(Orders order);
 	
 	List<Orders> getOrders();
+	
+	Orders getOrdersbyId(Integer id);
+	
+	void deleteOrder(Integer id);
 }
