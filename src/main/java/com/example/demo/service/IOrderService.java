@@ -13,6 +13,7 @@ public interface IOrderService {
 	List<Orders> getOrders();
 	
 	Orders getOrdersbyId(Integer id);
+	Orders getOrdersByMobile(String id);
 	
 	void deleteOrder(Integer id);
 }

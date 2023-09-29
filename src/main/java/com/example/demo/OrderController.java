@@ -47,6 +47,11 @@ public class OrderController {
 		return orderService.getOrdersbyId(id);
 	}
 	
+	@GetMapping("/mobile/{mobile}")
+	Orders getOrderByMobile(@PathVariable String mobile){
+		return orderService.getOrdersByMobile(mobile);
+	}
+	
 	@DeleteMapping("/{id}")
 	void deleteOrrders(@PathVariable Integer id){
 		orderService.deleteOrder(id);

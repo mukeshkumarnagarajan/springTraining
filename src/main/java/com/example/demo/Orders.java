@@ -4,6 +4,7 @@ import java.util.Date;
 
 import org.springframework.data.annotation.Transient;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,7 +15,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 
-@Entity
+@Entity(name = "orderPhone")
 public class Orders {
 	public Integer getId() {
 		return id;
@@ -29,6 +30,7 @@ public class Orders {
 	Integer id;
 	
 	@NotBlank(message = "Item name cannot be blank")
+	@Column(name= "itemWithNewName")
 	String item;
 	
 	@Min(value = 1, message = "Price cannot be negative")
@@ -57,7 +59,7 @@ public class Orders {
 	public String getMobile() {
 		return mobile;
 	}
-
+	
 	/**
 	 * @param mobile the mobile to set
 	 */

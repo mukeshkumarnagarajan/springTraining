@@ -40,4 +40,9 @@ public class OrderService implements IOrderService {
 	public void deleteOrder(Integer id) {
 		 repository.deleteById(id);
 	}
+
+	@Override
+	public Orders getOrdersByMobile(String mobile) {
+		return repository.findByMobile(mobile);
+	}
 }
